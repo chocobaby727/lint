@@ -1,0 +1,48 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "debug.inlineValues": true,
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.showFoldingControls": "always",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+    },
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": false,
+    "files.trimTrailingWhitespace": false,
+    "files.eol": "\n",
+    "terminal.integrated.confirmOnExit": "always",
+    "terminal.integrated.copyOnSelection": true,
+    "workbench.iconTheme": "vscode-icons",
+    "[python]": {
+        "editor.defaultFormatter": null,
+        "editor.tabSize": 4,
+    },
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.languageServer": "Pylance",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "${env:HOME}/.local/bin/flake8",
+    "python.linting.flake8Args": [
+        "--max-line-length",
+        "119",
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyPath": "${env:HOME}/.local/bin/mypy",
+    "python.sortImports.path": "${env:HOME}/.local/bin/isort",
+    "python.sortImports.args": [
+        "--profile",
+        "black"
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "${env:HOME}/.local/bin/black",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    }
+}

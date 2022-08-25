@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  app:
+    build:
+      target: dev
+    volumes:
+      - ./:/ailab_line
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    environment:
+      - PORT=${APP_PORT}
+  db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - PORT=${APP_PORT}
+    ports:
+      - "13306:${DB_PORT}"

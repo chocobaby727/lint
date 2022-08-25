@@ -1,0 +1,15 @@
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL,
+    email VARCHAR(32) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE messages(
+    id int(255) NOT NULL AUTO_INCREMENT,
+    message VARCHAR(100) NOT NULL,
+    time DATE,
+    add_rule BOOLEAN NOT NULL DEFAULT FALSE,
+    reply VARCHAR(256),
+    PRIMARY KEY(id)
+);

@@ -1,0 +1,9 @@
+ngrok-stable-windows-amd64/ngrok.exe
+containers
+.vscode
+.github
+.git
+.env
+.gitignore
+.mypy_cache
+custom-hooks
