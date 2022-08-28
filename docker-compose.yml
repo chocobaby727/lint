@@ -1,45 +1,13 @@
 version: '3.9'
 services:
   app:
-    container_name: fastapi_container
-    env_file: ./.env
-    # user: ${USER}
-    working_dir: /ailab_line
+    container_name: app_container
+    working_dir: /poetry_practice
     build:
       context: ./
-      dockerfile: ./docker/app/Dockerfile
-      args:
-        - USERNAME=${USER}
-        - USER_UID=${USER_UID}
-        - USER_GID=${USER_GID}
-    command: >
-      bash -c " pre-commit install && touch ./.git/hooks/pre-push && cp -f
-      ./custom-hooks/pre-push ./.git/hooks/pre-push && chmod 775 ./.git/hooks/pre-push &&
-      chmod 444 ./containers/mysql/conf.d/my.cnf && gunicorn
-      containers.fastapi.src.main:app --config
-      './containers/fastapi/src/gunicorn.conf.py'"
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/poetry_practice
     environment:
       TZ: Asia/Tokyo
-
-  db:
-    container_name: mysql_container
-    build:
-      context: ./docker/db/
-      dockerfile: Dockerfile
-      args:
-       - USERNAME=${USER}
-       - USER_UID=${USER_UID}
-       - USER_GID=${USER_GID}
-    environment:
-      TZ: 'Asia/Tokyo'
-    volumes:
-      - mysql-db:/var/lib/mysql
-      - ./containers/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./containers/mysql/initdb.d:/docker-entrypoint-initdb.d
-      - ./var/log/mysql:/var/log/mysql
-    depends_on:
-      - app
-
-volumes:
-  mysql-db:
-    driver: local
+    tty: true

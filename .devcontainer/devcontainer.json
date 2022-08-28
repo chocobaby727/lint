@@ -1,0 +1,82 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.3/containers/python-3
+{
+    "name": "fastpai",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/poetry_practice",
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                },
+                "files.autoSave": "afterDelay",
+                "files.autoSaveDelay": 1000,
+                "[python]": {
+                    "editor.tabSize": 4
+                },
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.languageServer": "Pylance",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": false,
+                "python.linting.pycodestyleEnabled": false,
+                "python.linting.lintOnSave": true,
+                // flake8
+                "python.linting.flake8Enabled": true,
+                "python.linting.flake8Path": "/usr/local/bin/pflake8",
+                "python.linting.flake8Args": [
+                    "--max-line-length",
+                    "119",
+                    "--max-complexity ",
+                    "10",
+                    "--extend-ignore",
+                    "E203"
+                ],
+                // mypy
+                "python.linting.mypyEnabled": true,
+                "python.linting.mypyPath": "$/usr/local/bin/mypy",
+                "python.sortImports.path": "$/usr/local/bin/isort",
+                "python.sortImports.args": [
+                    "--profile",
+                    "black"
+                ],
+                // black
+                "python.formatting.provider": "black",
+                "python.formatting.blackPath": "/usr/local/bin/black",
+                // bandit
+                "python.linting.banditPath": "/usr/local/bin/bandit",
+                // docstring
+                "autoDocstring.docstringFormat": "google"
+            },
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "njpwerner.autodocstring"
+            ]
+        }
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [9000],
+    // Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
+    "portsAttributes": {
+        "9000": {
+            "label": "Hello Remote World",
+            "onAutoForward": "notify"
+        }
+    },
+    // Use 'otherPortsAttributes' to configure any ports that aren't configured using 'portsAttributes'.
+    // "otherPortsAttributes": {
+    // 		"onAutoForward": "silent"
+    // },
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "pip3 install -r requirements.txt",
+    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
+}
