@@ -52,14 +52,19 @@
                 // bandit
                 "python.linting.banditPath": "/usr/local/bin/bandit",
                 // docstring
-                "autoDocstring.docstringFormat": "google"
-            },
-            // Add the IDs of extensions you want installed when the container is created.
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "njpwerner.autodocstring"
-            ]
+                "autoDocstring.docstringFormat": "google",
+                "remote.containers.defaultExtensions": [
+                    "ms-python.python",
+                    "ms-python.vscode-pylance",
+                    "njpwerner.autodocstring"
+                ]
+            }
+            // // Add the IDs of extensions you want installed when the container is created.
+            // "extensions": [
+            //     "ms-python.python",
+            //     "ms-python.vscode-pylance",
+            //     "njpwerner.autodocstring"
+            // ]
         }
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.

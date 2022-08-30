@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  app:
+    container_name: prod_container
+    build:
+      target: dev
+      context: ./
+      dockerfile: ./docker/Dockerfile
+      args:
+        - ENVIRONMENT=DEV
+    volumes:
+      - .:/poetry_practice
